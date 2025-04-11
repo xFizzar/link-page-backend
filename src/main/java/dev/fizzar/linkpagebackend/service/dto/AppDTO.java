@@ -1,4 +1,5 @@
 package dev.fizzar.linkpagebackend.service.dto;
 
-public class AppDTO {
+public record AppDTO(String name, String url, byte[] image) {
+
 }

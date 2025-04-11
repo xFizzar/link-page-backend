@@ -1,4 +1,7 @@
 package dev.fizzar.linkpagebackend.repository;
 
-public interface AppRepository extends org.springframework.data.jpa.repository.JpaRepository<dev.fizzar.linkpagebackend.domain.App, java.lang.Long> {
-  }
+import dev.fizzar.linkpagebackend.domain.App;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AppRepository extends JpaRepository<App, Long> {
+}
