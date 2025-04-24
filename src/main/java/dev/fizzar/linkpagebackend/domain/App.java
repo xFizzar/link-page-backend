@@ -2,12 +2,14 @@ package dev.fizzar.linkpagebackend.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ColumnTransformer;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "apps")
 public class App {
 
     @Id
@@ -20,10 +22,11 @@ public class App {
     @Column(nullable = false)
     private String url;
 
-    @Lob
     @Column(name = "image")
-    private byte[] image;
+    private String imageURL;
 
+    @Enumerated(EnumType.STRING)
+    private Type type;
 
 
 }
