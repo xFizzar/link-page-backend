@@ -1,6 +1,8 @@
 package dev.fizzar.linkpagebackend.api;
 
 import dev.fizzar.linkpagebackend.domain.App;
+import dev.fizzar.linkpagebackend.domain.AppDTO;
+import dev.fizzar.linkpagebackend.domain.Type;
 import dev.fizzar.linkpagebackend.service.AppService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +20,9 @@ public record RestAPI(AppService appService) {
     }
 
     @PostMapping("createApp")
-    public ResponseEntity<App> post(@RequestBody App app) {
-        return ResponseEntity.ok(appService.save(app));
+    public ResponseEntity<App> post(@RequestBody AppDTO app) {
+        App toSave = new App(null, app.name(), app.url(), app.imageURL(), Type.valueOf(app.type()));
+        return ResponseEntity.ok(appService.save(toSave));
     }
 
 }
