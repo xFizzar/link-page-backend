@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "http://10.0.0.205:4200"})
 public record RestAPI(AppService appService) {
 
     @GetMapping("apps")
